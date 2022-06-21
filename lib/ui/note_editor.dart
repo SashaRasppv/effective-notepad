@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:notes/provider/manipulation_with_notes/notes_functional.dart';
 import 'package:notes/style/app_styles.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +28,12 @@ class NoteEditorScreen extends StatefulWidget {
 }
 
 class _NoteEditorScreenState extends State<NoteEditorScreen> {
-  String date = DateTime.now().toString();
+  String date = DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+
   final TextEditingController _titleController = TextEditingController();
+
   final TextEditingController _contentController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
